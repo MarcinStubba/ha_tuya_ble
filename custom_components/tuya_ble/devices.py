@@ -462,7 +462,7 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
                 name="Soil Thermo-Hygrometer",
             ),
             "b1qeyegk": TuyaBLEProductInfo(  # new device product_id
-                name="Temperature Humidity Sensor SS202",
+                name="Czujnik temperatury i wilgotności Setti+ SS202",
             ),
         },
     ),
