@@ -214,6 +214,13 @@ devices_database: dict[str, TuyaBLECategoryInfo] = {
             ),
         },
     ),
+    "bh": TuyaBLECategoryInfo(
+        products={
+            "2acwksa3rj567bzu": TuyaBLEProductInfo(
+                name="Smart kettle Setti+ KT970K",
+            ),
+        },
+    ),
 }
 
 

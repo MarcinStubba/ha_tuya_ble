@@ -339,6 +339,19 @@ mapping: dict[str, TuyaBLECategorySwitchMapping] = {
             ],
         },
     ),
+    "bh": TuyaBLECategorySwitchMapping(
+        products={
+            "2acwksa3rj567bz": [  # Smart kettle Setti+ KT970K
+                TuyaBLESwitchMapping(
+                    dp_id=1,
+                    description=SwitchEntityDescription(
+                        key="start",
+                        entity_registry_enabled_default=True,
+                    ),
+                ),
+            ],
+        },
+    ),
 }
 
 

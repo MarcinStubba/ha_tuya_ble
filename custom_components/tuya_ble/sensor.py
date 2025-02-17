@@ -232,9 +232,18 @@ mapping: dict[str, TuyaBLECategorySensorMapping] = {
                 TuyaBLESensorMapping(
                     dp_id=2,
                     description=SensorEntityDescription(
-                        key="moisture",
-                        device_class=SensorDeviceClass.MOISTURE,
+                        key="va_humidity",
+                        device_class=SensorDeviceClass.HUMIDITY,
                         native_unit_of_measurement=PERCENTAGE,
+                        state_class=SensorStateClass.MEASUREMENT,
+                    ),
+                ),
+                TuyaBLESensorMapping(
+                    dp_id=1,
+                    description=SensorEntityDescription(
+                        key="va_temperature",
+                        device_class=SensorDeviceClass.TEMPERATURE,
+                        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
                         state_class=SensorStateClass.MEASUREMENT,
                     ),
                 ),
@@ -301,6 +310,22 @@ mapping: dict[str, TuyaBLECategorySensorMapping] = {
                         key="time_left",
                         device_class=SensorDeviceClass.DURATION,
                         native_unit_of_measurement=UnitOfTime.MINUTES,
+                        state_class=SensorStateClass.MEASUREMENT,
+                    ),
+                ),
+            ],
+        },
+    ),
+    "bh": TuyaBLECategorySensorMapping(
+        products={
+            "2acwksa3rj567bzu": [  # Smart kettle Setti+ KT970K
+
+                TuyaBLESensorMapping(
+                    dp_id=2,
+                    description=SensorEntityDescription(
+                        key="temp_current",
+                        device_class=SensorDeviceClass.TEMPERATURE,
+                        native_unit_of_measurement=UnitOfTemperature.CELSIUS,
                         state_class=SensorStateClass.MEASUREMENT,
                     ),
                 ),
