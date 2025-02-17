@@ -13,7 +13,7 @@ from homeassistant.helpers.device_registry import DeviceInfo
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity import Entity
 
-from homeassistant.components.tuya.const import (
+from .const import (
     DPCode,
 )
 
@@ -127,4 +127,3 @@ class EnumTypeData:
         if not (parsed := json.loads(data)):
             return None
         return cls(dpcode, **parsed)
-

@@ -32,9 +32,6 @@
     "button": {
       "push": {
         "name": "Push"
-      },
-      "bluetooth_unlock": {
-        "name": "Unlock"
       }
     },
     "number": {
@@ -67,12 +64,6 @@
       },
       "countdown_duration": {
         "name": "Irrigation duration"
-      },
-      "countdown_duration_z1": {
-        "name": "Irrigation duration - Zone 1"
-      },
-      "countdown_duration_z2": {
-        "name": "Irrigation duration - Zone 2"
       }
     },
     "select": {
@@ -101,9 +92,6 @@
     "binary_sensor": {
       "low_battery": {
         "name": "[%key:component::sensor::entity_component::battery::name%]"
-      },
-      "lock_motor_state": {
-          "name": "Motor State"
       }
     },
     "sensor": {
@@ -168,12 +156,6 @@
       },
       "time_left": {
           "name": "Remaining irrigation time"
-      },
-      "use_time_z1": {
-          "name": "Last irrigation time - Zone 1"
-      },
-      "use_time_z2": {
-          "name": "Last irrigation time - Zone 2"
       }
     },
     "switch": {
@@ -224,13 +206,7 @@
       },            
       "water_valve": {
           "name": "Irrigation valve"
-      },
-      "water_valve_z1": {
-          "name": "Irrigation valve - Zone 1"
-      },
-      "water_valve_z2": {
-          "name": "Irrigation valve - Zone 2"
-      }	  
+      }    
     },
     "text": {
       "program": {

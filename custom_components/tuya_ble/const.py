@@ -2,7 +2,7 @@
 from __future__ import annotations
 from dataclasses import dataclass
 
-from enum import StrEnum
+from homeassistant.backports.enum import StrEnum
 from tuya_iot import TuyaCloudOpenAPIEndpoint
 from typing_extensions import Final
 
@@ -20,8 +20,6 @@ CONF_PRODUCT_ID: Final = "product_id"
 CONF_DEVICE_NAME: Final = "device_name"
 CONF_PRODUCT_MODEL: Final = "product_model"
 CONF_PRODUCT_NAME: Final = "product_name"
-CONF_FUNCTIONS: Final = "functions"
-CONF_STATUS_RANGE: Final = "status_range"
 
 CONF_AUTH_TYPE = "auth_type"
 CONF_PROJECT_TYPE = "tuya_project_type"
@@ -33,7 +31,6 @@ TUYA_SMART_APP = "tuyaSmart"
 
 TUYA_API_DEVICES_URL: Final = "/v1.0/users/%s/devices"
 TUYA_API_FACTORY_INFO_URL: Final = "/v1.0/iot-03/devices/factory-infos?device_ids=%s"
-TUYA_API_DEVICE_SPECIFICATION: Final = "/v1.1/devices/%s/specifications"
 TUYA_FACTORY_INFO_MAC: Final = "mac"
 
 BATTERY_STATE_LOW: Final = "low"

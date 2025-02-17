@@ -52,14 +52,6 @@ class TuyaBLEFingerbotModeMapping(TuyaBLEButtonMapping):
     )
     is_available: TuyaBLEButtonIsAvailable = is_fingerbot_in_push_mode
 
-@dataclass
-class TuyaBLELockMapping(TuyaBLEButtonMapping):
-    description: ButtonEntityDescription = field(
-        default_factory=lambda: ButtonEntityDescription(
-            key="push",
-        )
-    )
-    is_available: TuyaBLEButtonIsAvailable = 0
 
 @dataclass
 class TuyaBLECategoryButtonMapping:
@@ -80,7 +72,7 @@ mapping: dict[str, TuyaBLECategoryButtonMapping] = {
                 [
                     "blliqpsj",
                     "ndvkgsrm",
-                    "yiihr7zh",
+                    "yiihr7zh", 
                     "neq16kgd"
                 ],  # Fingerbot Plus
                 [
@@ -103,19 +95,6 @@ mapping: dict[str, TuyaBLECategoryButtonMapping] = {
             ),
         },
     ),
-    "kg": TuyaBLECategoryButtonMapping(
-        products={
-            **dict.fromkeys(
-                [
-                    "mknd4lci",
-                    "riecov42"
-                ],  # Fingerbot Plus
-                [
-                    TuyaBLEFingerbotModeMapping(dp_id=108),
-                ],
-            ),
-        },
-    ),
     "znhsb": TuyaBLECategoryButtonMapping(
         products={
             "cdlandip":  # Smart water bottle
@@ -129,19 +108,20 @@ mapping: dict[str, TuyaBLECategoryButtonMapping] = {
             ],
         },
     ),
-    "ms": TuyaBLECategoryButtonMapping(
-          products={
-             "okkyfgfs": # Smart Lock
-             [
-                 TuyaBLELockMapping(
-                     dp_id=6,
-                     description=ButtonEntityDescription(
-                         key="bluetooth_unlock",
-                     ),
-                 ),
-             ],
-          },
-      ),
+    "jtmspro": TuyaBLECategoryButtonMapping(
+        products={
+            "xicdxood":  # Raycube K7 Pro+
+            [
+                TuyaBLEButtonMapping(
+                    dp_id=71, # On click it opens the lock, just like connecting via Smart Life App and holding the center button
+                    description=ButtonEntityDescription(
+                        key="ble_unlock_check",
+                        icon="mdi:lock-open-variant-outline",
+                    ),
+                ),
+            ],
+        },
+    ),
 }
 
 
@@ -181,11 +161,7 @@ class TuyaBLEButton(TuyaBLEEntity, ButtonEntity):
             False,
         )
         if datapoint:
-            if getattr(self._product, "lock", False):  # Safely check if 'lock' exists and is True
-                #Lock needs true to activate lock/unlock commands
-                self._hass.create_task(datapoint.set_value(True))
-            else:
-                self._hass.create_task(datapoint.set_value(not bool(datapoint.value)))
+            self._hass.create_task(datapoint.set_value(not bool(datapoint.value)))
 
     @property
     def available(self) -> bool:
